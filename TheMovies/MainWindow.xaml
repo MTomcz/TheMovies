@@ -31,7 +31,7 @@
         <TextBlock Grid.Row="3" Text="Genre:" FontSize="20"/>
         <TextBox Grid.Row="3" Grid.Column="1" x:Name="GenreBox"/>
 
-        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Gem film" Width="120" x:Name="SaveButton" Click="GemFilmButton_Click"/>
+        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Gem film" Width="120" Command="{Binding SaveMovieCommand}"/>
 
     </Grid>
 </Window>
