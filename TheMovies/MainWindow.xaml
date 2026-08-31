@@ -23,13 +23,13 @@
         <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Tilføj film" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="20"/>
 
         <TextBlock Grid.Row="1" Text="Titel:" FontSize="20"/>
-        <TextBox Grid.Row="1" Grid.Column="1" x:Name="TitleBox"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Movie.Title}"/>
 
         <TextBlock Grid.Row="2" Text="Varighed:" FontSize="20"/>
-        <TextBox Grid.Row="2" Grid.Column="1" x:Name="DurationBox"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Movie.Duration}"/>
 
         <TextBlock Grid.Row="3" Text="Genre:" FontSize="20"/>
-        <TextBox Grid.Row="3" Grid.Column="1" x:Name="GenreBox"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Movie.Genre}"/>
 
         <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Gem film" Width="120" Command="{Binding SaveMovieCommand}"/>
 
