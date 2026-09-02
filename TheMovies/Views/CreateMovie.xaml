@@ -10,8 +10,7 @@
 
     <Grid>
 
-        <Frame x:Name="CreateMovieFrame" Grid.Row="0" Grid.Column="2" Visibility="Collapsed" NavigationUIVisibility="Hidden" />
-
+        
 
         <Grid Margin="30">
             
@@ -64,7 +63,7 @@
 
             <!-- Primeredate -->
             <TextBlock Grid.Row="6" Text="Primæredato:" FontSize="20"/>
-            <DatePicker Grid.Row="6" Grid.Column="1" Width="30" HorizontalAlignment="Left" SelectedDate="{Binding Movie.Premierdate}" Margin="2"/>
+            <DatePicker Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" SelectedDate="{Binding Movie.Premierdate}" Margin="2"/>
 
 
             <!-- button "gem film" -->

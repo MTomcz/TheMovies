@@ -9,6 +9,69 @@
       Title="CreateScreening">
 
     <Grid>
-        
+        <Grid Margin="30">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+
+
+
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <!-- Heading -->
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Foreground="DarkRed" Text="★OPRET SCREENING★" FontSize="40" FontWeight="Heavy" FontFamily="Verdana" HorizontalAlignment="Center" Margin="20"/>
+
+
+            <!-- Choose movie -->
+            <TextBlock Grid.Row="1" Text="Film:" FontSize="20"/>
+            <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Movies}" DisplayMemberPath="Title" SelectedItem="{Binding Screening.Movie}" Margin="2"/>
+
+            <!-- Choose date -->
+            <TextBlock Grid.Row="3" Text="Dato" FontSize="20" />
+            <DatePicker Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left" SelectedDate="{Binding Screening.ShowTime}" Margin="2"/>
+            
+            <!-- Choose Time -->
+            <TextBlock Grid.Row="4" Text="Tid(time:min):" FontSize="20" />
+            <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding ScreeningTime}" Margin="2" />
+
+            <!-- Choose movie theater -->
+            <TextBlock Grid.Row="5" Text="Biograf:" FontSize="20" />
+            <ComboBox Grid.Row="5" Grid.Column="1" SelectedValue="{Binding Screening.MovieTheater}" SelectedValuePath="Content" Margin="2" >
+                
+                <ComboBoxItem Content="Hjerm"/>
+                <ComboBoxItem Content="Videbæk"/>
+                <ComboBoxItem Content="ThorsMinde"/>
+                <ComboBoxItem Content="Ræhr"/>
+
+            </ComboBox>
+
+            <!-- button "gem screening" and back button -->
+            <Button Grid.Row="8" Grid.ColumnSpan="2" Content="Gem screening" Width="120" Command="{Binding SaveScreeningCommand}"/>
+
+            <Button Grid.Row="10" Grid.ColumnSpan="2" HorizontalAlignment="Left" Content="🡠 Tilbage" Width="120" Command="{Binding GoBackMovieCommand}"/>
+
+
+
+        </Grid>
+
+
+
+
     </Grid>
 </Page>

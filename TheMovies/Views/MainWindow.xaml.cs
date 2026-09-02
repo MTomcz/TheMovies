@@ -30,6 +30,7 @@ namespace TheMovies.Views
             viewModel.OpenCreateMovie += OpenCreateMovie;
             viewModel.OpenHomePage += OpenHomePage;
             viewModel.OpenMovieListPage += OpenMovieList;
+            viewModel.OpenMakeScreening += OpenMakeScreening;
         }
 
         private void OpenCreateMovie()
@@ -58,6 +59,16 @@ namespace TheMovies.Views
             MainFrame.Visibility = Visibility.Visible;
 
             MainFrame.Navigate(new MovieList(viewModel));
+        }
+
+        private void OpenMakeScreening()
+        {
+
+            HomePageGrid.Visibility = Visibility.Collapsed;
+
+            MainFrame.Visibility = Visibility.Visible;
+
+            MainFrame.Navigate(new CreateScreening(viewModel));
         }
 
 

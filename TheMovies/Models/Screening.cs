@@ -10,7 +10,7 @@ namespace TheMovies.Models
 
         private Movie _movie;
         private DateTime _showtime;
-        private string _movieroom;
+        private string _movietheater;
 
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -41,18 +41,20 @@ namespace TheMovies.Models
             }
         }
 
-        public string Movieroom
+        public string MovieTheater
         {
             get
             {
-                return _movieroom;
+                return _movietheater;
             }
             set
             {
-                _movieroom = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Movieroom)));
+                _movietheater = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(MovieTheater)));
             }
         }
+
+
 
     }
 }

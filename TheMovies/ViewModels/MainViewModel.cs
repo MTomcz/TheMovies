@@ -21,12 +21,14 @@ namespace TheMovies.ViewModels
 
         public Movie Movie { get; set; }
         public Screening Screening { get; set; }
+        public string ScreeningTime { get; set; }
 
         public ICommand SaveMovieCommand { get; set; }
         public ICommand CreateScreeningCommand {  get; set; }
         public ICommand CreateMovieCommand { get; set; }
         public ICommand GoBackMovieCommand { get; set; }
         public ICommand MovieListCommand { get; set; }
+        public ICommand SaveScreeningCommand { get; set; }
 
 
         public ObservableCollection<Movie> Movies { get; }
@@ -38,16 +40,19 @@ namespace TheMovies.ViewModels
 
             Movie = new Movie();
             Screening = new Screening();
+            ScreeningTime = "";
 
             Movies = new ObservableCollection<Movie>();
             Screenings = new ObservableCollection<Screening>();
 
 
             SaveMovieCommand = new RelayCommand(SaveMovie);
-            CreateScreeningCommand = new RelayCommand(CreateScreening);
+            CreateScreeningCommand = new RelayCommand(MakeScreening);
             CreateMovieCommand = new RelayCommand(MakeMovie);
             GoBackMovieCommand = new RelayCommand(MovieGoBack);
             MovieListCommand = new RelayCommand(OpenMovieList);
+            SaveScreeningCommand = new RelayCommand(SaveScreening);
+
 
             LoadMovies();
 
@@ -87,11 +92,10 @@ namespace TheMovies.ViewModels
 
         }
 
-        public void CreateScreening()
+        public void MakeScreening()
         {
-            Screening screening = new Screening();
+            OpenMakeScreening.Invoke();
 
-            Screenings.Add(screening);
         }
 
         private void MakeMovie()
@@ -111,11 +115,29 @@ namespace TheMovies.ViewModels
 
         }
 
+        private void SaveScreening()
+        {
+            if (DateTime.TryParse(ScreeningTime, out DateTime time))
+            {
+                Screening.Showtime = Screening.Showtime.Date + time.TimeOfDay;
+
+                Screenings.Add(Screening);
+
+                MessageBox.Show("Screening er blevet gemt.");
+
+            }
+            else
+            {
+                MessageBox.Show("Skriv venligst et rigtigt tidspunkt, som eksempel 13:30");
+            }
+        }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
         public event Action OpenCreateMovie;
         public event Action OpenHomePage;
         public event Action OpenMovieListPage;
+        public event Action OpenMakeScreening;
 
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {
