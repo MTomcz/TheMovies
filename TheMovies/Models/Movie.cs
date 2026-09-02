@@ -11,6 +11,9 @@ namespace TheMovies.Models
         private int _duration;
         private string _genre;
 
+        private string _director;
+        private DateOnly _premierdate;
+
         public event PropertyChangedEventHandler? PropertyChanged;
 
         public string Title
@@ -50,6 +53,32 @@ namespace TheMovies.Models
             {
                 _genre = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Genre)));
+            }
+        }
+
+        public string Director
+        {
+            get
+            {
+                return _director;
+            }
+            set
+            {
+                _director = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Director)));
+            }
+        }
+
+        public DateOnly Premierdate
+        {
+            get
+            {
+                return _premierdate;
+            }
+            set
+            {
+                _premierdate = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Premierdate)));
             }
         }
 

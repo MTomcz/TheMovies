@@ -6,32 +6,41 @@
         xmlns:local="clr-namespace:TheMovies"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+
+    <!--Cop/paste for comment -->
+    <!-- -->
+
     <Grid Margin="30">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <!-- Grids for scenario 1 -->
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                
+            </Grid.RowDefinitions>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Tilføj film" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center" Margin="20"/>
+            <!-- Heading -->
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Foreground="DarkRed" Text="★THE MOVIES★" FontSize="40" FontWeight="Heavy" FontFamily="Verdana" HorizontalAlignment="Center" Margin="20"/>
 
-        <TextBlock Grid.Row="1" Text="Titel:" FontSize="20"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Movie.Title}"/>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-        <TextBlock Grid.Row="2" Text="Varighed:" FontSize="20"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Movie.Duration}"/>
+                <!-- First two buttons -->
+                <Button Content="OPRET FILM" Command="{Binding MakeMovieCommand}" Width="140" Height="30" FontFamily="Times New Roman"  Margin="10" />
+                <Button Content="OPRET SCREENING" Command="{Binding MakeScreeningCommand}" Width="140" Height="30" FontFamily="Times New Roman" Margin="10"/>
 
-        <TextBlock Grid.Row="3" Text="Genre:" FontSize="20"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Movie.Genre}"/>
+            </StackPanel>
 
-        <Button Grid.Row="4" Grid.ColumnSpan="2" Content="Gem film" Width="120" Command="{Binding SaveMovieCommand}"/>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                <!-- Next two buttons-->
+                <Button Content="Se film liste" Width="140" Height="30" FontFamily="Times New Roman" Margin="10" />
+                <Button Content="Månedens screenings" Width="140" Height="30" FontFamily="Times New Roman" Margin="10"/>
+
+            </StackPanel>
+        </Grid>
 
     </Grid>
 </Window>

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -12,26 +12,37 @@ using System.ComponentModel;
 
 namespace TheMovies.ViewModels
 {
-    public class MainViewModel
+    public class MainViewModel : INotifyPropertyChanged
     {
         private string filePath = "movies.json";
 
 
         public Movie Movie { get; set; }
-        public ICommand SaveMovieCommand { get; set; }
-        public List<Movie> Movies { get; set; }
+        public Screening Screening { get; set; }
 
+        public ICommand SaveMovieCommand { get; set; }
+        public ICommand CreateScreeningCommand {  get; set; }
+
+        public ObservableCollection<Movie> Movies { get; }
+        public ObservableCollection<Screening> Screenings { get; }
 
 
         public MainViewModel()
         {
-            Movie = new Movie();
 
-            Movies = new List<Movie>();
+            Movie = new Movie();
+            Screening = new Screening();
+
+            Movies = new ObservableCollection<Movie>();
+            Screenings = new ObservableCollection<Screening>();
+
 
             SaveMovieCommand = new RelayCommand(SaveMovie);
+            CreateScreeningCommand = new RelayCommand(CreateScreening);
 
             LoadMovies();
+
+
 
         }
 
@@ -40,7 +51,17 @@ namespace TheMovies.ViewModels
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                Movies = JsonSerializer.Deserialize<List<Movie>>(json);
+
+                List<Movie> movies = JsonSerializer.Deserialize<List<Movie>>(json);
+
+                if (movies != null)
+                {
+                    foreach (Movie movie in movies)
+                    {
+                        Movies.Add(movie);
+                    }
+                }
+
             }
         }
 
@@ -55,6 +76,20 @@ namespace TheMovies.ViewModels
             MessageBox.Show("filmen er blevet gemt.");
 
 
+        }
+
+        public void CreateScreening()
+        {
+            Screening screening = new Screening();
+
+            Screenings.Add(screening);
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
 
 
