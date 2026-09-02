@@ -5,14 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheMovies"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="550" Width="800">
 
 
     <!--Cop/paste for comment -->
     <!-- -->
 
     <Grid Margin="30">
-        <Grid>
+
+        <Frame x:Name="MainFrame" Grid.Row="0" Grid.Column="2" Visibility="Collapsed" NavigationUIVisibility="Hidden" />
+
+        <Grid x:Name="HomePageGrid">
             <Grid.RowDefinitions>
                 <!-- Grids for scenario 1 -->
                 <RowDefinition Height="Auto"/>
@@ -28,18 +31,20 @@
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <!-- First two buttons -->
-                <Button Content="OPRET FILM" Command="{Binding MakeMovieCommand}" Width="140" Height="30" FontFamily="Times New Roman"  Margin="10" />
-                <Button Content="OPRET SCREENING" Command="{Binding MakeScreeningCommand}" Width="140" Height="30" FontFamily="Times New Roman" Margin="10"/>
+                <Button Content="OPRET FILM" Command="{Binding CreateMovieCommand}" Width="140" Height="30" FontFamily="Times New Roman"  Margin="10" />
+                <Button Content="OPRET SCREENING" Command="{Binding CreateScreeningCommand}" Width="140" Height="30" FontFamily="Times New Roman" Margin="10"/>
 
             </StackPanel>
 
-            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
 
                 <!-- Next two buttons-->
-                <Button Content="Se film liste" Width="140" Height="30" FontFamily="Times New Roman" Margin="10" />
+                <Button Content="Se film liste" Command="{Binding MovieListCommand}" Width="140" Height="30" FontFamily="Times New Roman" Margin="10" />
                 <Button Content="Månedens screenings" Width="140" Height="30" FontFamily="Times New Roman" Margin="10"/>
 
             </StackPanel>
+
+
         </Grid>
 
     </Grid>

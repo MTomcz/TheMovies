@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.IO;
 using System.ComponentModel;
 using TheMovies.Views;
+using System.Security.Cryptography.X509Certificates;
 
 namespace TheMovies.ViewModels
 {
@@ -23,6 +24,9 @@ namespace TheMovies.ViewModels
 
         public ICommand SaveMovieCommand { get; set; }
         public ICommand CreateScreeningCommand {  get; set; }
+        public ICommand CreateMovieCommand { get; set; }
+        public ICommand GoBackMovieCommand { get; set; }
+        public ICommand MovieListCommand { get; set; }
 
 
         public ObservableCollection<Movie> Movies { get; }
@@ -41,6 +45,9 @@ namespace TheMovies.ViewModels
 
             SaveMovieCommand = new RelayCommand(SaveMovie);
             CreateScreeningCommand = new RelayCommand(CreateScreening);
+            CreateMovieCommand = new RelayCommand(MakeMovie);
+            GoBackMovieCommand = new RelayCommand(MovieGoBack);
+            MovieListCommand = new RelayCommand(OpenMovieList);
 
             LoadMovies();
 
@@ -87,8 +94,28 @@ namespace TheMovies.ViewModels
             Screenings.Add(screening);
         }
 
+        private void MakeMovie()
+        {
+            OpenCreateMovie.Invoke();
+
+        }
+
+        private void MovieGoBack()
+        {
+            OpenHomePage.Invoke();
+        }
+
+        private void OpenMovieList()
+        {
+            OpenMovieListPage.Invoke();
+
+        }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
+        public event Action OpenCreateMovie;
+        public event Action OpenHomePage;
+        public event Action OpenMovieListPage;
 
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
         {

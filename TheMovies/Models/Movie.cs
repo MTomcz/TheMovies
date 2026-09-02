@@ -10,9 +10,8 @@ namespace TheMovies.Models
         private string _title;
         private int _duration;
         private string _genre;
-
         private string _director;
-        private DateOnly _premierdate;
+        private DateTime _premierdate;
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -69,7 +68,7 @@ namespace TheMovies.Models
             }
         }
 
-        public DateOnly Premierdate
+        public DateTime Premierdate
         {
             get
             {

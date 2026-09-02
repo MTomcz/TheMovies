@@ -15,12 +15,52 @@ namespace TheMovies.Views
 
     public partial class MainWindow : Window
     {
+        private MainViewModel viewModel;
+
+
         public MainWindow()
         {
             InitializeComponent();
 
-            DataContext = new MainViewModel();
+            viewModel = new MainViewModel();
+
+
+            DataContext = viewModel;
+
+            viewModel.OpenCreateMovie += OpenCreateMovie;
+            viewModel.OpenHomePage += OpenHomePage;
+            viewModel.OpenMovieListPage += OpenMovieList;
         }
+
+        private void OpenCreateMovie()
+        {
+
+            HomePageGrid.Visibility = Visibility.Collapsed;
+
+            MainFrame.Visibility = Visibility.Visible;
+
+            MainFrame.Navigate(new CreateMovie(viewModel));
+
+        }
+
+        private void OpenHomePage()
+        {
+
+            MainFrame.Visibility = Visibility.Collapsed;
+
+            HomePageGrid.Visibility = Visibility.Visible;
+        }
+
+        private void OpenMovieList()
+        {
+            HomePageGrid.Visibility = Visibility.Collapsed;
+
+            MainFrame.Visibility = Visibility.Visible;
+
+            MainFrame.Navigate(new MovieList(viewModel));
+        }
+
+
 
     }
 }
