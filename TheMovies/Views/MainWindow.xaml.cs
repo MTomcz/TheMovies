@@ -10,7 +10,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TheMovies.ViewModels;
 
-namespace TheMovies
+namespace TheMovies.Views
 {
 
     public partial class MainWindow : Window
