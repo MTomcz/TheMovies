@@ -7,11 +7,51 @@ namespace TheMovies.Models
 {
     public class Movie : INotifyPropertyChanged
     {
-        public string Title { get; set; }
-        public int Duration {  get; set; }
-        public string Genre {  get; set; }
+        private string _title;
+        private int _duration;
+        private string _genre;
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+        public string Title
+        {
+            get
+            {
+                return _title;
+            }
+            set
+            {
+                _title = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Title)));
+            }
+        }
+
+        public int Duration
+        {
+            get
+            {
+                return _duration;
+            }
+            set
+            {
+                _duration = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Duration)));
+            }
+        }
+
+        public string Genre
+        {
+            get
+            {
+                return _genre;
+            }
+
+            set
+            {
+                _genre = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Genre)));
+            }
+        }
 
     }
 }
