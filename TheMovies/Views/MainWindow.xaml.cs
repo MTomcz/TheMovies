@@ -22,9 +22,5 @@ namespace TheMovies.Views
             DataContext = new MainViewModel();
         }
 
-        private void Button_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-
-        }
     }
 }

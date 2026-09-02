@@ -9,6 +9,7 @@ using System.Text.Json;
 using System.Runtime.CompilerServices;
 using System.IO;
 using System.ComponentModel;
+using TheMovies.Views;
 
 namespace TheMovies.ViewModels
 {
@@ -22,6 +23,7 @@ namespace TheMovies.ViewModels
 
         public ICommand SaveMovieCommand { get; set; }
         public ICommand CreateScreeningCommand {  get; set; }
+
 
         public ObservableCollection<Movie> Movies { get; }
         public ObservableCollection<Screening> Screenings { get; }
@@ -84,6 +86,7 @@ namespace TheMovies.ViewModels
 
             Screenings.Add(screening);
         }
+
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
