@@ -31,6 +31,7 @@ namespace TheMovies.Views
             viewModel.OpenHomePage += OpenHomePage;
             viewModel.OpenMovieListPage += OpenMovieList;
             viewModel.OpenMakeScreening += OpenMakeScreening;
+            viewModel.OpenScreeningPage += OpenScreeningList;
         }
 
         private void OpenCreateMovie()
@@ -69,6 +70,12 @@ namespace TheMovies.Views
             MainFrame.Visibility = Visibility.Visible;
 
             MainFrame.Navigate(new CreateScreening(viewModel));
+        }
+        private void OpenScreeningList()
+        {
+            HomePageGrid.Visibility = Visibility.Collapsed;
+            MainFrame.Visibility = Visibility.Visible;
+            MainFrame.Navigate(new ScreeningList(viewModel));
         }
 
 

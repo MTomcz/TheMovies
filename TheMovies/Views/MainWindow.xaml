@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TheMovies"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800">
+        Title="MainWindow" Height="600" Width="850">
 
 
     <!--Cop/paste for comment -->
@@ -40,7 +40,7 @@
 
                 <!-- Next two buttons-->
                 <Button Content="Se film liste" Command="{Binding MovieListCommand}" Width="140" Height="30" FontFamily="Times New Roman" Margin="10" />
-                <Button Content="Månedens screenings" Width="140" Height="30" FontFamily="Times New Roman" Margin="10"/>
+                <Button Content="Se Screenings" Command="{Binding ScreeningListCommand}" Width="140" Height="30" FontFamily="Times New Roman" Margin="10"/>
 
             </StackPanel>
 
