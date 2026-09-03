@@ -52,8 +52,11 @@
 
                                     <TextBlock Text="{Binding Movie.Title}" FontSize="20" FontWeight="DemiBold"/>
                                     <TextBlock Text="{Binding Showtime, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
+                                    <TextBlock Text="{Binding AdStart, StringFormat=Movie starts:{0:HH:mm}}" />
+                                    <TextBlock Text="{Binding MovieEnd, StringFormat=Movie ends: {0:HH:mm}}"/>
+                                    <TextBlock Text="{Binding CleaningEnd, StringFormat=Cleaning ends: {0:HH:mm}}"/>
 
-                                    
+
                                 </StackPanel>
 
                             </Border>
@@ -84,6 +87,9 @@
 
                                     <TextBlock Text="{Binding Movie.Title}" FontSize="20" FontWeight="DemiBold"/>
                                     <TextBlock Text="{Binding Showtime, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
+                                    <TextBlock Text="{Binding AdStart, StringFormat=Movie starts:{0:HH:mm}}" />
+                                    <TextBlock Text="{Binding MovieEnd, StringFormat=Movie ends: {0:HH:mm}}"/>
+                                    <TextBlock Text="{Binding CleaningEnd, StringFormat=Cleaning ends: {0:HH:mm}}"/>
 
 
                                 </StackPanel>
@@ -117,6 +123,9 @@
 
                                     <TextBlock Text="{Binding Movie.Title}" FontSize="20" FontWeight="DemiBold"/>
                                     <TextBlock Text="{Binding Showtime, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
+                                    <TextBlock Text="{Binding AdStart, StringFormat=Movie starts:{0:HH:mm}}" />
+                                    <TextBlock Text="{Binding MovieEnd, StringFormat=Movie ends: {0:HH:mm}}"/>
+                                    <TextBlock Text="{Binding CleaningEnd, StringFormat=Cleaning ends: {0:HH:mm}}"/>
 
 
                                 </StackPanel>
@@ -149,6 +158,9 @@
 
                                     <TextBlock Text="{Binding Movie.Title}" FontSize="20" FontWeight="DemiBold"/>
                                     <TextBlock Text="{Binding Showtime, StringFormat={}{0:dd/MM/yyyy HH:mm}}"/>
+                                    <TextBlock Text="{Binding AdStart, StringFormat=Movie starts:{0:HH:mm}}" />
+                                    <TextBlock Text="{Binding MovieEnd, StringFormat=Movie ends: {0:HH:mm}}"/>
+                                    <TextBlock Text="{Binding CleaningEnd, StringFormat=Cleaning ends: {0:HH:mm}}"/>
 
 
                                 </StackPanel>

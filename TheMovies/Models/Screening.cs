@@ -55,6 +55,9 @@ namespace TheMovies.Models
         }
 
 
+        public DateTime AdStart => Showtime.AddMinutes(-15);
+        public DateTime MovieEnd => Showtime.AddMinutes(Movie.Duration);
+        public DateTime CleaningEnd => MovieEnd.AddMinutes(15);
 
     }
 }
